@@ -1,0 +1,1 @@
+# FORK: https://github.com/OpenClassrooms-Student-Center/Python-OC-Lettings-FR.git
