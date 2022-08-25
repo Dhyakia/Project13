@@ -8,7 +8,7 @@ jobs:
     docker:
       - image: nardiotencha08/lettings
         auth:
-          username: nardiotencha08
+          username: dockerhub_username
           password: nXt^9=Mi)8.U4wM
     steps:
       - checkout
