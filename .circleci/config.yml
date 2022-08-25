@@ -7,6 +7,9 @@ jobs:
   build-and-test:
     docker:
       - image: cimg/python:3.10.2
+        auth:
+          username: dockerhub_username
+          password: dockerhub_password
     steps:
       - checkout
       - python/install-packages:
