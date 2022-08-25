@@ -8,8 +8,8 @@ jobs:
     docker:
       - image: nardiotencha08/lettings
         auth:
-          username: dockerhub_username
-          password: nXt^9=Mi)8.U4wM
+          username: ${dockerhub_username}
+          password: ${dockerhub_password}
     steps:
       - checkout
       - python/install-packages:
