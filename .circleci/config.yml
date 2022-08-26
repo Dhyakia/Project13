@@ -16,7 +16,7 @@ jobs:
           pkg-manager: pip
       - run:
           name: Run tests
-          command: pyte
+          command: pytest
 
 workflows:
   sample:
