@@ -6,7 +6,7 @@ orbs:
 jobs:
   build-and-test:
     docker:
-      - image: nardiotencha08/letting
+      - image: nardiotencha08/lettings
         auth:
           username: ${dockerhub_username}
           password: ${dockerhub_password}
