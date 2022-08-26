@@ -11,6 +11,7 @@ jobs:
           username: ${dockerhub_username}
           password: ${dockerhub_password}
     steps:
+      - checkout
       - python/install-packages:
           pkg-manager: pip
       - run:
