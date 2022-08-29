@@ -1,4 +1,6 @@
 import os
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -11,7 +13,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'fp$9^593hsriajg$_%=5trot9g!1qa@ew(o-1#@=&4%=hp46(s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -114,3 +116,13 @@ STATIC_URL = '/static/'
 STATIC_ROOT = './static/'
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'testserver', '.herokuapp.com']
+
+# Sentry
+sentry_sdk.init(
+    dsn="https://1bcd57480ed3429eb89febfae90f228b@o1382894.ingest.sentry.io/6698677",
+    integrations=[
+        DjangoIntegration(),
+    ],
+    traces_sample_rate=1.0,
+    send_default_pii=True
+)
