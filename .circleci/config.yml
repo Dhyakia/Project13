@@ -4,19 +4,15 @@ orbs:
   python: circleci/python@1.5.0
 
 jobs:
+  
   build-and-test:
-    docker:
-      - image: nardiotencha08/lettings
-        auth:
-          username: ${dockerhub_username}
-          password: ${dockerhub_password}
     steps:
       - checkout
       - python/install-packages:
           pkg-manager: pip
       - run:
           name: Run tests
-          command: pytest
+          command: pytest    
 
 workflows:
   sample:
