@@ -13,50 +13,66 @@ class Migration(migrations.Migration):
         migrations.RunSQL("""
             INSERT INTO lettings_letting (
                 id,
-                name,
-                category_id
+                title,
+                address_id
             )
             SELECT
                 id,
-                name,
-                category_id
+                title,
+                address_id
             FROM
                 oc_lettings_site_letting;
             
             INSERT INTO lettings_address (
                 id,
-                name,
-                category_id
+                number,
+                street,
+                city,
+                state,
+                zip_code,
+                country_iso_code
             )
             SELECT
                 id,
-                name,
-                category_id
+                number,
+                street,
+                city,
+                state,
+                zip_code,
+                country_iso_code
             FROM
                 oc_lettings_site_address;
 
             """, reverse_sql="""
             INSERT INTO oc_lettings_site_letting (
                 id,
-                name,
-                category_id
+                title,
+                address_id
             )
             SELECT
                 id,
-                name,
-                category_id
+                title,
+                address_id
             FROM
                 lettings_letting;
             
             INSERT INTO oc_lettings_site_address (
                 id,
-                name,
-                category_id
+                number,
+                street,
+                city,
+                state,
+                zip_code,
+                country_iso_code
             )
             SELECT
                 id,
-                name,
-                category_id
+                number,
+                street,
+                city,
+                state,
+                zip_code,
+                country_iso_code
             FROM
                 lettings_address;
         """)
