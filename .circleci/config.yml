@@ -7,7 +7,7 @@ jobs:
   
   build-and-test:
     docker:
-      - image: nardiotencha08/lettings:lastest
+      - image: nardiotencha08/lettings:latest
         auth:
           username: ${dockerhub_username}
           password: ${dockerhub_password}
