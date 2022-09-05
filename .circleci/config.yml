@@ -23,6 +23,9 @@ jobs:
 
   build-and-push:
     executor: docker/docker
+    auth:
+          username: ${dockerhub_username}
+          password: ${dockerhub_password}
     steps:
       - setup_remote_docker
       - checkout
