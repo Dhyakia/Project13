@@ -26,11 +26,13 @@ jobs:
     steps:
       - setup_remote_docker
       - checkout
+      - docker/check:
+        pass
       - docker/build:
-          image: my_repo/orb-test
+          image: nardiotencha08/lettings
       - docker/push:
           digest-path: /tmp/digest.txt
-          image: my_repo/orb-test
+          image: nardiotencha08/lettings
       - run:
           command: |
             echo "Digest is: $(</tmp/digest.txt)"
