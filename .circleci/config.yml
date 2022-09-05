@@ -2,10 +2,10 @@ version: 2.1
 
 orbs:
   python: circleci/python@1.5.0
+  docker: circleci/docker@2.1.3
   heroku: circleci/heroku@0.0.10
 
 jobs:
-  
   build-and-test:
     docker:
       - image: nardiotencha08/lettings:latest
