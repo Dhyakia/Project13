@@ -6,6 +6,7 @@ orbs:
   heroku: circleci/heroku@0.0.10
 
 jobs:
+
   build-and-test:
     docker:
       - image: nardiotencha08/lettings:latest
@@ -20,8 +21,20 @@ jobs:
           name: Run tests
           command: pytest    
 
+  build-and-push:
+    executor: docker/docker
+    steps:
+      - setup_remote_docker
+      - checkout
+      - docker/check
+      - docker/build:
+          image: nardiotencha08/lettings
+      - docker/push:
+          image: nardiotencha08/lettings
+
 workflows:
   sample:
     jobs:
       - build-and-test
+      - build-and-push
       - heroku/deploy-via-git
