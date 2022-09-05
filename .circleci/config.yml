@@ -28,7 +28,7 @@ jobs:
       - checkout
       - docker/check:
           docker-username: nardiotencha08
-          docker-password: ${dockerhub_password}
+          docker-password: passwordtest
       - docker/build:
           image: nardiotencha08/lettings
       - docker/push:
