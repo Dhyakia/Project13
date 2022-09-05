@@ -128,4 +128,3 @@ sentry_sdk.init(
 
 # Fix for W042
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
-
