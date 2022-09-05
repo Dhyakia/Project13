@@ -22,15 +22,19 @@ jobs:
           command: pytest    
 
   build-and-push:
-    executor: docker/docker
-    steps:
-      - setup_remote_docker
-      - checkout
-      - docker/check
-      - docker/build:
-          image: nardiotencha08/lettings
-      - docker/push:
-          image: nardiotencha08/lettings
+    docker:
+      auth:
+        username: ${dockerhub_username}
+        password: ${dockerhub_password}
+      executor: docker/docker
+      steps:
+        - setup_remote_docker
+        - checkout
+        - docker/check
+        - docker/build:
+            image: nardiotencha08/lettings
+        - docker/push:
+            image: nardiotencha08/lettings
 
 workflows:
   sample:
