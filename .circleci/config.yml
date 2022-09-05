@@ -11,8 +11,8 @@ jobs:
     docker:
       - image: nardiotencha08/lettings:latest
         auth:
-          username: ${dockerhub_username}
-          password: ${dockerhub_password}
+          username: $dockerhub_username
+          password: $dockerhub_password
     steps:
       - checkout
       - python/install-packages:
@@ -27,7 +27,7 @@ jobs:
       - setup_remote_docker
       - checkout
       - docker/check:
-          docker-password: os.getenv('dockerhub_password')
+          docker-password: ${dockerhub_password}
           docker-username: nardiotencha08
       - docker/build:
           image: nardiotencha08/lettings
