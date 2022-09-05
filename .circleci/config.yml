@@ -40,5 +40,5 @@ workflows:
   sample:
     jobs:
       - build-and-test
-      - build-and-push-docker-image
+      - build-and-push
       - heroku/deploy-via-git
