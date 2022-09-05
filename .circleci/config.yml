@@ -27,7 +27,7 @@ jobs:
       - setup_remote_docker
       - checkout
       - docker/check:
-          docker-password: ${dockerhub_password}
+          docker-password: os.getenv('dockerhub_password')
           docker-username: nardiotencha08
       - docker/build:
           image: nardiotencha08/lettings
