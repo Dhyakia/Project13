@@ -23,13 +23,12 @@ jobs:
 
   build-and-push:
     executor: docker/docker
-    auth:
-      username: ${dockerhub_username}
-      password: ${dockerhub_password}
     steps:
       - setup_remote_docker
       - checkout
-      - docker/check
+      - docker/check:
+        docker-username: ${dockerhub_username}
+        docker-password: ${dockerhub_password}
       - docker/build:
           image: my_repo/orb-test
       - docker/push:
