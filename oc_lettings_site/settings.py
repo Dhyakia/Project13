@@ -114,7 +114,7 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = './static/'
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'testserver', '.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0', 'localhost', 'testserver', '.herokuapp.com']
 
 # Sentry
 sentry_sdk.init(
