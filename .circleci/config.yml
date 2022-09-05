@@ -22,21 +22,21 @@ jobs:
           command: pytest    
 
   build-and-push:
-    executor: docker/docker
+    docker:
+      auth:
+        username: ${dockerhub_username}
+        password: ${dockerhub_password}
     steps:
-      - setup_remote_docker
-      - checkout
-      - docker/check:
-        docker-username: ${dockerhub_username}
-        docker-password: ${dockerhub_password}
-      - docker/build:
-          image: nardiotencha08/lettings
-      - docker/push:
-          digest-path: /tmp/digest.txt
-          image: nardiotencha08/lettings
-      - run:
-          command: |
-            echo "Digest is: $(</tmp/digest.txt)"
+    - setup_remote_docker
+    - checkout
+    - docker/build:
+        image: nardiotencha08/lettings
+    - docker/push:
+        digest-path: /tmp/digest.txt
+        image: nardiotencha08/lettings
+    - run:
+        command: |
+          echo "Digest is: $(</tmp/digest.txt)"
 
 workflows:
   sample:
