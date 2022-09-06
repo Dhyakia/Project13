@@ -38,6 +38,10 @@ jobs:
           command: |
             echo "Digest is: $(</tmp/digest.txt)"
 
+general:
+  branches:
+    only:
+      - master
 
 workflows:
   sample:
