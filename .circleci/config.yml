@@ -18,7 +18,7 @@ jobs:
           pkg-manager: pip
       - run:
           name: Run tests
-          command: pyt
+          command: pytest
   build-and-push:
     executor: docker/docker
     steps:
