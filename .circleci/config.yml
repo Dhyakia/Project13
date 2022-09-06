@@ -37,12 +37,13 @@ jobs:
             echo "Digest is: $(</tmp/digest.txt)"
 
 workflows:
-  sample:
+  version: 2
+  test-build-deploy:
     jobs:
       - build-and-test
       - build-and-push:
         requires:
           - build-and-test
       - heroku/deploy-via-git:
-          requires:
-            - build-and-push
+        requires:
+          - build-and-push
