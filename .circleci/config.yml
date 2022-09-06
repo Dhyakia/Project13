@@ -41,8 +41,16 @@ workflows:
     jobs:
       - build-and-test
       - build-and-push:
+          filters:
+            branches:
+              only:
+                - master
           requires:
             - build-and-test
       - heroku/deploy-via-git:
+          filters:
+            branches:
+              only:
+                - master
           requires:
             - build-and-push
