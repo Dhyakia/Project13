@@ -43,3 +43,6 @@ workflows:
       - build-and-push:
           requires:
             - build-and-test
+      - heroku/deploy-via-git:
+          requires:
+            - build-and-push
