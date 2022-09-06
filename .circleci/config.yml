@@ -6,7 +6,6 @@ orbs:
   heroku: circleci/heroku@0.0.10
 
 jobs:
-
   build-and-test:
     docker:
       - image: $dockerhub_depot/$dockerhub_repository:latest
@@ -20,7 +19,6 @@ jobs:
       - run:
           name: Run tests
           command: pytest    
-
   build-and-push:
     executor: docker/docker
     steps:
@@ -38,14 +36,13 @@ jobs:
           command: |
             echo "Digest is: $(</tmp/digest.txt)"
 
-general:
-  branches:
-    only:
-      - master
-
 workflows:
   sample:
     jobs:
       - build-and-test
-      - build-and-push
-      - heroku/deploy-via-git
+      - build-and-push:
+        requires:
+          - build-and-test
+      - heroku/deploy-via-git:
+          requires:
+            - build-and-push
